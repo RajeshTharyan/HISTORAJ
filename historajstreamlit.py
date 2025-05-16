@@ -176,12 +176,13 @@ def historaj(df_col_data, col_name, title_text, note_text, yaxis_choice, show_pe
 
 def main():
     st.set_page_config(layout="wide", page_title="HistoraJ: Summary Statistics & Visualization")
-    st.title("HistoraJ: Summary Statistics & Visualization")
+    st.title("Historaj: Summary Statistics & Visualization")
+    st.markdown("**By: Prof. Rajesh Tharyan**")
 
     # --- App Description and Instructions ---
     st.markdown("""
     ## What this app does
-    HistoraJ helps you quickly analyze and visualize the distribution of numeric data. For each selected column in your dataset, it generates a histogram showing the data distribution, an overlaid normal distribution curve (if standard deviation is valid), vertical lines marking standard deviations from the mean (-3sd to +3sd), and a summary of key statistics (mean, median, standard deviation, skewness, kurtosis, and optionally, key percentiles).
+    Historaj helps you quickly analyze and visualize the distribution of numeric data. For each selected column in your dataset, it generates a histogram showing the data distribution, an overlaid normal distribution curve (if standard deviation is valid), vertical lines marking standard deviations from the mean (-3sd to +3sd), and a summary of key statistics (mean, median, standard deviation, skewness, kurtosis, and optionally, key percentiles).
 
     ## How to use HistoraJ
     1.  **Upload Your Data**: In the sidebar on the left, click "Select input file" to upload your data (supported formats: CSV, Excel (.xlsx, .xls), Stata (.dta)).
