@@ -3,3 +3,4 @@ pandas
 numpy
 matplotlib
 scipy 
+xlrd ≥ 2.0.1
