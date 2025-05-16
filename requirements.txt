@@ -2,5 +2,6 @@ streamlit
 pandas
 numpy
 matplotlib
-scipy 
-xlrd ≥ 2.0.1
+scipy
+openpyxl
+xlrd==1.2.0
