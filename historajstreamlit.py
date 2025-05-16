@@ -175,8 +175,35 @@ def historaj(df_col_data, col_name, title_text, note_text, yaxis_choice, show_pe
 
 
 def main():
-    st.set_page_config(layout="wide", page_title="HistoraJ Streamlit")
-    st.title("HistoraJ: Data Analysis & Visualization")
+    st.set_page_config(layout="wide", page_title="HistoraJ: Summary Statistics & Visualization")
+    st.title("HistoraJ: Summary Statistics & Visualization")
+
+    # --- App Description and Instructions ---
+    st.markdown("""
+    ## What this app does
+    HistoraJ helps you quickly analyze and visualize the distribution of numeric data. For each selected column in your dataset, it generates:
+    *   A histogram showing the data distribution.
+    *   An overlaid normal distribution curve (if standard deviation is valid).
+    *   Vertical lines marking -3sd, -2sd, -1sd, +1sd, +2sd, +3sd from the mean.
+    *   A summary of key statistics, including mean, median, standard deviation, skewness, kurtosis, and optionally, key percentiles (5th, 10th, 25th, 75th, 90th, 95th).
+
+    ## How to use HistoraJ
+    1.  **Upload Your Data**: In the sidebar on the left, click "Select input file" to upload your data (supported formats: CSV, Excel (.xlsx, .xls), Stata (.dta)).
+    2.  **Specify File Type**: Ensure the correct file type is selected in the dropdown (the app will try to guess based on the file extension).
+    3.  **Filter Data (Optional)**:
+        *   **By Observation Range**: Enter 1-based start and/or end observation numbers to analyze a specific slice of your data.
+        *   **By Condition**: Apply a filter based on column values (e.g., `age > 30 and income < 50000`). Refer to column names exactly as they appear in your file.
+    4.  **Customize Plot Appearance (Optional)**:
+        *   **Overall Title**: Add a general title that will appear on each plot.
+        *   **Overall Note**: Add an overall note/caption that will appear for the entire figure (Markdown supported).
+        *   **Y-axis Type**: Choose how the y-axis is scaled (Density, Frequency, Fraction, Percentage).
+        *   **Show Key Percentiles**: Check this box to include detailed percentile information in the statistics.
+    5.  **Select Columns for Analysis**: Choose one or more numeric columns from your dataset that you wish to analyze.
+    6.  **Run Analysis**: Click the "Run Analysis" button in the sidebar.
+
+    The results, including plots and detailed statistics (in an expandable section for each variable), will appear in this main area.
+    """)
+    st.markdown("---_" ) # Visual separator
 
     if 'df' not in st.session_state:
         st.session_state.df = None
