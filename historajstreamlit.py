@@ -254,7 +254,9 @@ def main():
                 st.session_state.file_type_at_load = None
 
     # Conditional Data Preview
-    if st.session_state.df is not None and st.session_state.get('last_df_filtered_for_plot') is None:
+    if st.session_state.df is not None and \
+       st.session_state.get('last_df_filtered_for_plot') is None and \
+       not st.session_state.get('run_analysis_triggered', False):
         st.subheader("Data Preview (First 5 rows)")
         st.dataframe(st.session_state.df.head())
 
