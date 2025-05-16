@@ -181,25 +181,19 @@ def main():
     # --- App Description and Instructions ---
     st.markdown("""
     ## What this app does
-    HistoraJ helps you quickly analyze and visualize the distribution of numeric data. For each selected column in your dataset, it generates:
-    *   A histogram showing the data distribution.
-    *   An overlaid normal distribution curve (if standard deviation is valid).
-    *   Vertical lines marking -3sd, -2sd, -1sd, +1sd, +2sd, +3sd from the mean.
-    *   A summary of key statistics, including mean, median, standard deviation, skewness, kurtosis, and optionally, key percentiles (5th, 10th, 25th, 75th, 90th, 95th).
+    HistoraJ helps you quickly analyze and visualize the distribution of numeric data. For each selected column in your dataset, it generates a histogram showing the data distribution, an overlaid normal distribution curve (if standard deviation is valid), vertical lines marking standard deviations from the mean (-3sd to +3sd), and a summary of key statistics (mean, median, standard deviation, skewness, kurtosis, and optionally, key percentiles).
 
     ## How to use HistoraJ
     1.  **Upload Your Data**: In the sidebar on the left, click "Select input file" to upload your data (supported formats: CSV, Excel (.xlsx, .xls), Stata (.dta)).
-    2.  **Specify File Type**: Ensure the correct file type is selected in the dropdown (the app will try to guess based on the file extension).
-    3.  **Filter Data (Optional)**:
+    2.  **Filter Data (Optional)**:
         *   **By Observation Range**: Enter 1-based start and/or end observation numbers to analyze a specific slice of your data.
         *   **By Condition**: Apply a filter based on column values (e.g., `age > 30 and income < 50000`). Refer to column names exactly as they appear in your file.
-    4.  **Customize Plot Appearance (Optional)**:
-        *   **Overall Title**: Add a general title that will appear on each plot.
-        *   **Overall Note**: Add an overall note/caption that will appear for the entire figure (Markdown supported).
+    3.  **Customize Plot Appearance (Optional)**:
+        *   **Title & Note**: Add an overall title for plots and/or an overall note/caption for the figure (Markdown supported for note).
         *   **Y-axis Type**: Choose how the y-axis is scaled (Density, Frequency, Fraction, Percentage).
         *   **Show Key Percentiles**: Check this box to include detailed percentile information in the statistics.
-    5.  **Select Columns for Analysis**: Choose one or more numeric columns from your dataset that you wish to analyze.
-    6.  **Run Analysis**: Click the "Run Analysis" button in the sidebar.
+    4.  **Select Columns for Analysis**: Choose one or more numeric columns from your dataset that you wish to analyze.
+    5.  **Run Analysis**: Click the "Run Analysis" button in the sidebar.
 
     The results, including plots and detailed statistics (in an expandable section for each variable), will appear in this main area.
     """)
@@ -389,7 +383,7 @@ def main():
         plt.tight_layout(pad=3.0)
         if note_str and n > 0:
             fig.suptitle(note_str, y=1.00, fontsize=12, va='bottom')
-        st.pyplot(fig, dpi=200)
+        st.pyplot(fig, dpi=300)
     
     elif run_button and (st.session_state.df is None or not selected_columns):
         st.warning("Run Analysis clicked, but please upload a file and select at least one numeric column.")
