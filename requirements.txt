@@ -1,6 +1,7 @@
-streamlit
-pandas
-numpy
 matplotlib
 scipy
 openpyxl
+streamlit==1.44.1
+numpy==1.26.4
+pandas==2.2.2
+pip==25.0.1
